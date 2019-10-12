@@ -199,6 +199,44 @@ void levelorder2(TreeNode *root){
 	}
 }
 
+vi leftv,rightv,bottomv;
+void leftview(TreeNode *root){
+	//cout<<root->val<<" ";
+	leftv.pb(root->val);
+	if(root->left)leftview(root->left);
+	else if(root->right)leftview(root->right);
+}
+
+void bottomview(TreeNode *root){
+	if(!root)return ;
+	bottomview(root->left);
+	if(root->left==NULL && root->right==NULL){
+		//cout<<root->val<<" ";
+		bottomv.pb(root->val);
+	}
+	bottomview(root->right);
+}
+
+void rightview(TreeNode *root){
+	///cout<<root->val<<" ";
+	rightv.pb(root->val);
+	if(root->right)rightview(root->right);
+	else if(root->left)rightview(root->left);
+}
+
+void boundaryTraversal(TreeNode* root){
+	osit;
+	leftview(root);
+	bottomview(root);
+	rightview(root);
+	leftv.pop_back();
+	bottomv.pop_back();
+	pv(leftv);
+	pv(bottomv);
+	reverse(all(rightv));
+	pv(rightv);
+}
+
 int32_t main(){
 	boost;
 	// Example tree 1
@@ -212,9 +250,7 @@ int32_t main(){
 	root->left->left->left=createNode(7);
 	root->right->right->right=createNode(8);
 	root->left->left->left->right=createNode(9);
-	levelorder1(root);
-	cout<<endl<<endl;
-	levelorder2(root);
+	boundaryTraversal(root);
 
 	/*
 	//Example tree 2 
