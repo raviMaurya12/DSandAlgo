@@ -128,7 +128,7 @@ void postorder2(TreeNode *root){
 			}else if(cur.s==1){
 				st.pop();
 				st.push(mp(cur.f,2));
-				st.push(mp(cur.f->right,1));
+				st.push(mp(cur.f->right,0));
 			}else if(cur.s==2){
 				cout<<cur.f->val<<" ";
 				st.pop();
