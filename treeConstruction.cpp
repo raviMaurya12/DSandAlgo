@@ -80,7 +80,7 @@ TreeNode* fromInPreorder(vi in,vi pre){
 		cout<<"Sizes Unequal!"<<endl;
 		exit(0);
 	}
-	if(pre.size()==0 || pre.empty())return NULL;
+	if(pre.size()==0)return NULL;
 	TreeNode *root=createNode(pre[0]);
 	if(pre.size()==1)return root;
 	int index=search(pre[0],in);
@@ -122,16 +122,6 @@ void withoutConst(vi in,vi pre){
 
 int32_t main(){
 	boost;
-	/*
-	//Example Tree 3
-	TreeNode *root=createNode(1);
-	root->left=createNode(2);
-	root->right=createNode(3);
-	root->left->left=createNode(4);
-	root->left->right=createNode(5);
-	root->right->left=createNode(6);
-	*/
-
 	vi in={4,10,12,15,18,22,24,25,31,35,44,50,66,70,90};
 	vi pre={25,15,10,4,12,22,18,24,50,35,31,44,70,66,90};
 	//TreeNode *newroot=fromInPreorder(in,pre);
@@ -155,6 +145,6 @@ int32_t main(){
 		ans.pop();
 		cout<<el<<" ";
 	}
-	
+
 	return 0;
 }

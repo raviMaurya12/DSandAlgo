@@ -32,6 +32,7 @@ template<typename T> T gcd(T a,T b){if(a==0) return b; return gcd(b%a,a);}
 int isPowerof2(int x) { return (x && !(x & x-1)); }
 
 int n;
+
 void buildTree(int a[],int *tree,int l,int r,int index){
 	if(l>r)return ;
 	if(l==r){

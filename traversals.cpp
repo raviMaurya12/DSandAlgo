@@ -239,6 +239,7 @@ void boundaryTraversal(TreeNode* root){
 
 int32_t main(){
 	boost;
+	/*
 	// Example tree 1
 	TreeNode *root=createNode(1);
 	root->left=createNode(2);
@@ -251,6 +252,7 @@ int32_t main(){
 	root->right->right->right=createNode(8);
 	root->left->left->left->right=createNode(9);
 	boundaryTraversal(root);
+	*/
 
 	/*
 	//Example tree 2 
@@ -265,5 +267,6 @@ int32_t main(){
     root->right->right->right = createNode(9); 
     verticalorder(root);
     */
+
 	return 0;
 }
