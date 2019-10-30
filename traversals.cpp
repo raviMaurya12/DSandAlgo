@@ -199,14 +199,25 @@ void levelorder2(TreeNode *root){
 	}
 }
 
-vi leftv,rightv,bottomv;
-void leftview(TreeNode *root){
-	//cout<<root->val<<" ";
-	leftv.pb(root->val);
-	if(root->left)leftview(root->left);
-	else if(root->right)leftview(root->right);
+vector<int> leftSideView(TreeNode* root) {
+    vector<int> ans;
+    if(root==NULL)return ans;
+    vector<TreeNode*> v,tv;
+    v.push_back(root);
+    while(v.size()!=0){
+        ans.push_back(v[0]->val);
+        for(auto el:v){
+            if(el->left)tv.push_back(el->left);
+            if(el->right)tv.push_back(el->right);
+        }
+        v.clear();
+        v=tv;
+        tv.clear();
+    }
+    return ans;
 }
 
+vi bottomv;
 void bottomview(TreeNode *root){
 	if(!root)return ;
 	bottomview(root->left);
@@ -217,18 +228,29 @@ void bottomview(TreeNode *root){
 	bottomview(root->right);
 }
 
-void rightview(TreeNode *root){
-	///cout<<root->val<<" ";
-	rightv.pb(root->val);
-	if(root->right)rightview(root->right);
-	else if(root->left)rightview(root->left);
+vector<int> rightSideView(TreeNode* root) {
+    vector<int> ans;
+    if(root==NULL)return ans;
+    vector<TreeNode*> v,tv;
+    v.push_back(root);
+    while(v.size()!=0){
+        ans.push_back(v[v.size()-1]->val);
+        for(auto el:v){
+            if(el->left)tv.push_back(el->left);
+            if(el->right)tv.push_back(el->right);
+        }
+        v.clear();
+        v=tv;
+        tv.clear();
+    }
+    return ans;
 }
 
 void boundaryTraversal(TreeNode* root){
 	osit;
-	leftview(root);
+	vi leftv=leftSideView(root);
 	bottomview(root);
-	rightview(root);
+	vi rightv=rightSideView(root);
 	leftv.pop_back();
 	bottomv.pop_back();
 	pv(leftv);

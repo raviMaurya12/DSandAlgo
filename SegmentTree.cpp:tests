@@ -1,5 +1,0 @@
-[
-	{
-		"test": "6\n1 3 5 7 9 11\n\n5\nupdate 0 2 \nsum 0 5\nupdate 5 2 \nsum 0 5 \nsum 5 5 \n"
-	}
-]
